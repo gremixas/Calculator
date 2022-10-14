@@ -1,0 +1,79 @@
+body {
+    display: grid;
+    margin: auto;
+    place-items: center;
+    width: 400px;
+    height: 100vh;
+    background: radial-gradient(#888, #222);
+}
+
+.digits {
+    width: 98.3%;
+    height: 60px;
+    font-size: 50px;
+    grid-column: 1 / 5;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    text-align: right;
+    background-color: #0d2d2c;
+    font-family: 'Teko', sans-serif;
+    border: 1px solid #555;
+    outline: 2px solid #777;
+    text-shadow: 0 0 15px #0fecc0;
+    color: #ccdbd9;
+}
+
+.center {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 26px;
+    background: linear-gradient(#fedcc1, #dfdae9);
+    border-radius: 10px;
+    border: 2px solid #777;
+    outline: 1px solid #444;
+    margin: 20px auto;
+    position: relative;
+}
+
+.center::after {
+    content: 'CASIO';
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Rajdhani', sans-serif;
+    background-color: #013093;
+    color: #fedcc1;
+    padding: 0 5px;
+    letter-spacing: 0.1em;
+}
+
+[class*='-btn'] {
+    aspect-ratio: 1 / 1;
+    font-size: 50px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid #111;
+    outline: 2px solid #444;
+    background: radial-gradient(#666, #222);
+    color: rgb(254, 255, 181);
+    transition: font-size 50ms ease-in-out;
+}
+
+[class*='-btn']:active {
+    font-size: 40px;
+}
+
+.equal-btn {
+    grid-column: 3 / 5;
+    aspect-ratio: 2 / 1;
+    margin-top: 10px;
+}
+
+.del-btn {
+    grid-column: 1 / 2;
+    margin-top: 10px;
+}

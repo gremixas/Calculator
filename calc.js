@@ -1,55 +1,33 @@
-const sumBtn = document.querySelector('.sum-btn');
-const subBtn = document.querySelector('.sub-btn');
-const divBtn = document.querySelector('.div-btn');
-const mulBtn = document.querySelector('.mul-btn');
-const modBtn = document.querySelector('.mod-btn');
-const clrBtn = document.querySelector('.clr-btn');
-const num1 = document.querySelector('.calc-first-number');
-const num2 = document.querySelector('.calc-second-number');
-const result = document.querySelector('.result');
+'use strict'
 
-sumBtn.addEventListener('click', () => displayResult(+num1.value, +num2.value, 'sum'))
+const digits = document.querySelector('.digits');
 
-subBtn.addEventListener('click', () => displayResult(+num1.value, +num2.value, 'sub'))
-
-divBtn.addEventListener('click', () => displayResult(+num1.value, +num2.value, 'div'))
-
-mulBtn.addEventListener('click', () => multiply())
-function multiply() {
-    result.innerText = +num1.value * +num2.value;
-}
-
-const module = () => {
-    result.innerText = +num1.value % +num2.value;
-}
-modBtn.addEventListener('click', () => module())
-
-
-clrBtn.addEventListener('click', () => {
-    num1.value = '';
-    num2.value = '';
-    result.innerText = '';
+document.querySelector('.center').addEventListener('click', (event) => {
+    if (event.target.type === 'button') {
+        const btn = event.target.className;
+        btn === 'zero-btn' ? digits.value += '0' : null
+        btn === 'one-btn' ? digits.value += '1' : null
+        btn === 'two-btn' ? digits.value += '2' : null
+        btn === 'three-btn' ? digits.value += '3' : null
+        btn === 'four-btn' ? digits.value += '4' : null
+        btn === 'five-btn' ? digits.value += '5' : null
+        btn === 'six-btn' ? digits.value += '6' : null
+        btn === 'seven-btn' ? digits.value += '7' : null
+        btn === 'eight-btn' ? digits.value += '8' : null
+        btn === 'nine-btn' ? digits.value += '9' : null
+        btn === 'dot-btn' ? digits.value += '.' : null
+        btn === 'div-btn' ? digits.value += '/' : null
+        btn === 'mul-btn' ? digits.value += '*' : null
+        btn === 'sub-btn' ? digits.value += '-' : null
+        btn === 'sum-btn' ? digits.value += '+' : null
+        btn === 'clear-btn' ? digits.value = '' : null
+        btn === 'del-btn' ? digits.value = digits.value.slice(0, digits.value.length - 1) : null
+        btn === 'equal-btn' ? digits.value = eval(digits.value) : null
+        sound();
+    }
 })
 
-
-function calc(num1, num2, operation) {
-    switch (operation) {
-        case 'sum':
-            return num1 + num2;
-        case 'sub':
-            return num1 - num2;
-        case 'div':
-            return num1 / num2;
-        case 'mul':
-            return num1 * num2;
-        case 'mod':
-            return num1 % num2;
-        default:
-            return;
-        }
-}
-
-
-function displayResult(n1, n2, action) {
-    result.innerText = 'Rezultatas: ' + calc(n1, n2, action);
+function sound(){
+    var snd = new Audio('sound.mp3');
+    snd.play();
 }
